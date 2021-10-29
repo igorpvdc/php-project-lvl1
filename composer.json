@@ -1,5 +1,6 @@
 {
     "name": "hexlet/code",
+    "bin": ["bin/brain-games"],
     "autoload": {
         "psr-4": {
             "Hexlet\\Code\\": "src/"
@@ -11,5 +12,7 @@
             "email": "igor.pvdc@gmail.com"
         }
     ],
+    "description": "hexlet php-project-lvl1",
+    "license": "MIT",
     "require": {}
 }
