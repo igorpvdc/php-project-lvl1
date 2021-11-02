@@ -10,7 +10,7 @@
         },
         "files": [
             "src/Cli.php",
-            "src/even.php"
+            "src/Even.php"
         ]
     },
     "authors": [
