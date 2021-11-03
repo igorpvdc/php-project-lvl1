@@ -14,6 +14,13 @@ function engine()
     $array2 = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
 
     $name = greeting();
+    line('Choose a game you want to play');
+    line('even or calc');
+    $game = prompt('Your choice is: ');
 
-    calc($name, $array1, $array2);
+    if ($game === 'even') {
+        isEven($name, $array1);
+    } elseif ($game === 'calc') {
+        calc($name, $array1, $array2);
+    }
 }
