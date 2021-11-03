@@ -11,7 +11,7 @@ if (file_exists($autoloadPath1)) {
 }
 
 use function Brain\Games\Cli\greeting;
-use function Brain\Games\Even\isEven;
+use function Brain\Games\Calc\isEven;
 use function Brain\Games\Engine\engine;
 
 engine();
