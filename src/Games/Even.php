@@ -20,7 +20,7 @@ function isEven($name, $array)
         $answer = prompt("Question: {$int}");
 
         if ($isEven === $answer) {
-            line("Correct");
+            line("Correct!");
             $correctAnswers++;
         } elseif ($answer === 'no' && $isEven === 'yes') {
             line("'no' is wrong answer ;(. Correct answer was 'yes'.");

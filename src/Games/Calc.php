@@ -27,11 +27,11 @@ function calc($name, $array1, $array2)
         $answer = prompt("Your answer: ");
 
         if ($result === (int) $answer) {
-            line("Correct");
+            line("Correct!");
             $correctAnswers++;
         } else {
             line("{$answer} is wrong answer ;(. Correct answer was {$result}.");
-            line("Lets try again, {$name}");
+            line("Lets try again, {$name}!");
             break;
         }
     }

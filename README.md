@@ -8,3 +8,5 @@
 Link to demo of brain-even game: https://asciinema.org/connect/5f880f73-e50e-4556-88a1-441075377bf1
 
 Link to demo of brain-calc game: https://asciinema.org/a/YJ26KTtqasKfCpX8hX6GWv6Du
+
+Link to demo of brain-gcd game: https://asciinema.org/a/hfeveaBUsNdkQIM9cELCRYzXI
