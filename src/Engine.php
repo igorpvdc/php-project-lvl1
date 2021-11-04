@@ -2,6 +2,8 @@
 
 namespace Brain\Games\Engine;
 
+use function Brain\Games\Progression\progression;
+use function Brain\Games\Progression\randomArrayWithProgression;
 use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Cli\greeting;
@@ -13,10 +15,13 @@ function engine()
 {
     $array1 = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
     $array2 = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
+    $array3 = randomArrayWithProgression();
+    $array4 = randomArrayWithProgression();
+    $array5 = randomArrayWithProgression();
 
     $name = greeting();
     line('Choose a game you want to play');
-    line('even or calc or gcd');
+    line('even or calc or gcd or progression');
     $game = prompt('Your choice is: ');
 
     if ($game === 'even') {
@@ -25,5 +30,16 @@ function engine()
         calc($name, $array1, $array2);
     } elseif ($game === 'gcd') {
         gcd($name, $array1, $array2);
+    } elseif ($game === 'progression') {
+        $result1 = progression($name, $array3);
+        if ($result1 === true) {
+            $result2 = progression($name, $array4);
+            if ($result2 === true) {
+                $result3 = progression($name, $array5);
+                if ($result3 === true) {
+                    line("Congratulations, {$name}!");
+                }
+            }
+        }
     }
 }
