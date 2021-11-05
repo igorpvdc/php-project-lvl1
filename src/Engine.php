@@ -2,7 +2,6 @@
 
 namespace Brain\Games\Engine;
 
-use function Brain\Games\Prime\prime;
 use function Brain\Games\Progression\progression;
 use function Brain\Games\Progression\randomArrayWithProgression;
 use function cli\line;
@@ -11,6 +10,7 @@ use function Brain\Games\Cli\greeting;
 use function Brain\Games\Even\isEven;
 use function Brain\Games\Calc\calc;
 use function Brain\Games\Gcd\gcd;
+use function Brain\Games\Prime\prime;
 
 function engine()
 {
@@ -22,7 +22,7 @@ function engine()
 
     $name = greeting();
     line('Choose a game you want to play');
-    line('even or calc or gcd or progression or prime');
+    line("\"even\" or \"calc\" or \"gcd\" or \"progression\" or \"prime\"");
     $game = prompt('Your choice is');
 
     if ($game === 'even') {

@@ -2,8 +2,29 @@
 
 namespace Brain\Games\Progression;
 
+use function Brain\Games\Cli\greeting;
 use function cli\line;
 use function cli\prompt;
+
+function progressionGame()
+{
+    $array3 = randomArrayWithProgression();
+    $array4 = randomArrayWithProgression();
+    $array5 = randomArrayWithProgression();
+
+    $name = greeting();
+
+    $result1 = progression($name, $array3);
+    if ($result1 === true) {
+        $result2 = progression($name, $array4);
+        if ($result2 === true) {
+            $result3 = progression($name, $array5);
+            if ($result3 === true) {
+                line("Congratulations, {$name}!");
+            }
+        }
+    }
+}
 
 function progression($name, $array): bool
 {

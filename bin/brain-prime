@@ -1,5 +1,4 @@
 #!/usr/bin/env php
-
 <?php
 
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
@@ -10,11 +9,6 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-use function Brain\Games\Cli\greeting;
-use function Brain\Games\Even\isEven;
-use function Brain\Games\Engine\engine;
-use function Brain\Games\Gcd\gcd;
-use function Brain\Games\Progression\progression;
 use function Brain\Games\Prime\prime;
 
-engine();
+prime();

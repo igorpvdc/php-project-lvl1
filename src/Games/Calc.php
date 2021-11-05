@@ -4,9 +4,16 @@ namespace Brain\Games\Calc;
 
 use function cli\line;
 use function cli\prompt;
+use function Brain\Games\Cli\greeting;
 
-function calc($name, $array1, $array2)
+function calc($name = '', $array1 = [], $array2 = [])
 {
+    if ($name !== '' && $array1 !== [] && $array2 !== []) {
+    } else {
+        $name = greeting();
+        $array1 = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
+        $array2 = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
+    }
 
     $correctAnswers = 0;
     $sign = ['-', '+', '*'];

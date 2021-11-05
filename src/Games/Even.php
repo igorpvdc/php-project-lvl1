@@ -2,11 +2,18 @@
 
 namespace Brain\Games\Even;
 
+use function Brain\Games\Cli\greeting;
 use function cli\line;
 use function cli\prompt;
 
-function isEven($name, $array)
+function isEven($name = '', $array = [])
 {
+    if ($name !== '' && $array !== []) {
+    } else {
+        $name = greeting();
+        $array = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
+    }
+
     $correctAnswers = 0;
 
     foreach ($array as $int) {

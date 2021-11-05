@@ -4,9 +4,15 @@ namespace Brain\Games\Prime;
 
 use function cli\line;
 use function cli\prompt;
+use function Brain\Games\Cli\greeting;
 
-function prime($name, $array)
+function prime($name = '', $array = [])
 {
+    if ($name !== '' && $array !== []) {
+    } else {
+        $name = greeting();
+        $array = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
+    }
 
     $correctAnswers = 0;
 
