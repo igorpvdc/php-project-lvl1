@@ -17,7 +17,8 @@ function isEven($name, $array)
         }
 
         line("Answer \"yes\" if the number is even, otherwise answer \"no\".");
-        $answer = prompt("Question: {$int}");
+        line("Question: $int");
+        $answer = prompt("Your answer");
 
         if ($isEven === $answer) {
             line("Correct!");

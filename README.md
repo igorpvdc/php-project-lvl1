@@ -12,3 +12,6 @@ Link to demo of brain-calc game: https://asciinema.org/a/YJ26KTtqasKfCpX8hX6GWv6
 Link to demo of brain-gcd game: https://asciinema.org/a/hfeveaBUsNdkQIM9cELCRYzXI
 
 Link to demo of brain-progression game: https://asciinema.org/a/vdLHCsilnulcIC2T1tCenz2Jx
+
+Link to demo of brain-progression game: https://asciinema.org/a/FgZ6pNdBsBtrZLrt1TXCmdT7I
+

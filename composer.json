@@ -5,7 +5,8 @@
         "bin/brain-even",
         "bin/brain-calc",
         "bin/brain-gcd",
-        "bin/brain-progression"
+        "bin/brain-progression",
+        "bin/brain-prime"
     ],
     "autoload": {
         "psr-4": {
@@ -17,6 +18,7 @@
             "src/Games/Calc.php",
             "src/Games/Gcd.php",
             "src/Games/Progression.php",
+            "src/Games/Prime.php",
             "src/Engine.php"
         ]
     },

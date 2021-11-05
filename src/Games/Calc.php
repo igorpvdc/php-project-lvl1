@@ -24,7 +24,7 @@ function calc($name, $array1, $array2)
 
         line("What is the result of the expression?");
         line("Question: {$array1[$i]} {$sign[$randomsign]} {$array2[$i]}");
-        $answer = prompt("Your answer: ");
+        $answer = prompt("Your answer");
 
         if ($result === (int) $answer) {
             line("Correct!");

@@ -15,7 +15,7 @@ function gcd($name, $array1, $array2)
 
         line("Find the greatest common divisor of given numbers.");
         line("Question: {$array1[$i]} {$array2[$i]}");
-        $answer = prompt("Your answer: ");
+        $answer = prompt("Your answer");
 
         if ((int) $result === (int) $answer) {
             line("Correct!");

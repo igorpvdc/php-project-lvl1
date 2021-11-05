@@ -16,7 +16,7 @@ function progression($name, $array): bool
 
     line("What number is missing in the progression?");
     line("Question: {$arrayForUser}");
-    $answer = prompt("Your answer: ");
+    $answer = prompt("Your answer");
 
     if ((int) $result === (int) $answer) {
             line("Correct!");
