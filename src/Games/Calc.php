@@ -6,7 +6,7 @@ use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Cli\greeting;
 
-function calcGame($name = '', $array1 = [], $array2 = [])
+function calc($name = '', $array1 = [], $array2 = [])
 {
     if ($name !== '' && $array1 !== [] && $array2 !== []) {
     } else {

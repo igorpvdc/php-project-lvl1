@@ -44,14 +44,11 @@ function primeGame($name = '', $array = [])
 
 function isPrime($num)
 {
-    if ($num === 1) {
-        return true;
-    }
-
     for ($i = 2; $i < $num; $i++) {
         if ($num % $i === 0) {
             return false;
+        } else {
+            return true;
         }
-        return true;
     }
 }

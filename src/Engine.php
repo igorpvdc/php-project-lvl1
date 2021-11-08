@@ -2,15 +2,15 @@
 
 namespace Brain\Games\Engine;
 
-use function Brain\Games\Calc\calcGame;
-use function Brain\Games\Even\isEvenGame;
-use function Brain\Games\Gcd\gcdGame;
 use function Brain\Games\Progression\progression;
 use function Brain\Games\Progression\randomArrayWithProgression;
-use function Brain\Games\Prime\primeGame;
 use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Cli\greeting;
+use function Brain\Games\Even\isEven;
+use function Brain\Games\Calc\calc;
+use function Brain\Games\Gcd\findGcd;
+use function Brain\Games\Prime\primeGame;
 
 function engine()
 {
@@ -26,11 +26,11 @@ function engine()
     $game = prompt('Your choice is');
 
     if ($game === 'even') {
-        isEvenGame($name, $array1);
+        isEven($name, $array1);
     } elseif ($game === 'calc') {
-        calcGame($name, $array1, $array2);
+        calc($name, $array1, $array2);
     } elseif ($game === 'gcd') {
-        gcdGame($name, $array1, $array2);
+        findGcd($name, $array1, $array2);
     } elseif ($game === 'progression') {
         $result1 = progression($name, $array3);
         if ($result1 === true) {
