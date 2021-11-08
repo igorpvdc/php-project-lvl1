@@ -6,7 +6,7 @@ use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Cli\greeting;
 
-function findGcd($name = '', $array1 = [], $array2 = [])
+function gcdGame($name = '', $array1 = [], $array2 = [])
 {
     if ($name !== '' && $array1 !== [] && $array2 !== []) {
     } else {
