@@ -9,8 +9,8 @@ use function cli\prompt;
 use function Brain\Games\Cli\greeting;
 use function Brain\Games\Even\isEven;
 use function Brain\Games\Calc\calc;
-use function Brain\Games\Gcd\gcd;
-use function Brain\Games\Prime\prime;
+use function Brain\Games\Gcd\findGcd;
+use function Brain\Games\Prime\primeGame;
 
 function engine()
 {
@@ -30,7 +30,7 @@ function engine()
     } elseif ($game === 'calc') {
         calc($name, $array1, $array2);
     } elseif ($game === 'gcd') {
-        gcd($name, $array1, $array2);
+        findGcd($name, $array1, $array2);
     } elseif ($game === 'progression') {
         $result1 = progression($name, $array3);
         if ($result1 === true) {
@@ -43,6 +43,6 @@ function engine()
             }
         }
     } elseif ($game === 'prime') {
-        prime($name, $array1);
+        primeGame($name, $array1);
     }
 }

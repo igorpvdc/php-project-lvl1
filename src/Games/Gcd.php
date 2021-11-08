@@ -6,7 +6,7 @@ use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Cli\greeting;
 
-function gcd($name = '', $array1 = [], $array2 = [])
+function findGcd($name = '', $array1 = [], $array2 = [])
 {
     if ($name !== '' && $array1 !== [] && $array2 !== []) {
     } else {
@@ -18,7 +18,7 @@ function gcd($name = '', $array1 = [], $array2 = [])
     $correctAnswers = 0;
 
     for ($i = 0, $len = count($array1); $i < $len; $i++) {
-        $result = gmp_gcd($array1[$i], $array2[$i]);
+        $result = gcd($array1[$i], $array2[$i]);
 
         line("Find the greatest common divisor of given numbers.");
         line("Question: {$array1[$i]} {$array2[$i]}");
@@ -37,4 +37,9 @@ function gcd($name = '', $array1 = [], $array2 = [])
     if ($correctAnswers === 3) {
         line("Congratulations, {$name}!");
     }
+}
+
+function gcd($num1, $num2)
+{
+    return ($num1 % $num2) ? gcd($num2, $num1 % $num2) : $num2;
 }

@@ -6,7 +6,7 @@ use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Cli\greeting;
 
-function prime($name = '', $array = [])
+function primeGame($name = '', $array = [])
 {
     if ($name !== '' && $array !== []) {
     } else {
@@ -17,16 +17,16 @@ function prime($name = '', $array = [])
     $correctAnswers = 0;
 
     foreach ($array as $int) {
-        $result = gmp_prob_prime($int);
+        $result = isPrime($int);
 
         line("Answer \"yes\" if given number is prime. Otherwise answer \"no\".");
         line("Question: {$int}");
         $answer = prompt("Your answer");
 
-        if (($answer === 'yes' && ($result === 1 || $result === 2)) || ($answer === 'no' && $result === 0)) {
+        if (($answer === 'yes' && $result === true) || ($answer === 'no' && $result === false)) {
             line("Correct!");
             $correctAnswers++;
-        } elseif ($answer === 'no' && ($result === 1 || $result === 2)) {
+        } elseif ($answer === 'no' && $result === true) {
             line("{$answer} is wrong answer ;(. Correct answer was \"yes\".");
             line("Lets try again, {$name}!");
             break;
@@ -39,5 +39,16 @@ function prime($name = '', $array = [])
 
     if ($correctAnswers === 3) {
         line("Congratulations, {$name}!");
+    }
+}
+
+function isPrime($num)
+{
+    for ($i = 2; $i < $num; $i++) {
+        if ($num % $i === 0) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }
