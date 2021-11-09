@@ -6,7 +6,7 @@ use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Cli\greeting;
 
-function primeGame($name = '', $array = []): string
+function primeGame($name = '', $array = [])
 {
     if ($name !== '' && $array !== []) {
     } else {
