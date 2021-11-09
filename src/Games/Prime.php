@@ -28,11 +28,11 @@ function primeGame($name = '', $array = [])
             $correctAnswers++;
         } elseif ($answer === 'no' && $result === true) {
             line("{$answer} is wrong answer ;(. Correct answer was \"yes\".");
-            line("Lets try again, {$name}!");
+            line("Let's try again, {$name}!");
             break;
         } else {
             line("{$answer} is wrong answer ;(. Correct answer was \"no\".");
-            line("Lets try again, {$name}!");
+            line("Let's try again, {$name}!");
             break;
         }
     }

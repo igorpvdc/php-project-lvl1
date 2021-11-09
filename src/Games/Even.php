@@ -32,15 +32,15 @@ function isEven($name = '', $array = [])
             $correctAnswers++;
         } elseif ($answer === 'no' && $isEven === 'yes') {
             line("'no' is wrong answer ;(. Correct answer was 'yes'.");
-            line("Lets try again, {$name}!");
+            line("Let's try again, {$name}!");
             break;
         } elseif ($answer === 'yes' && $isEven === 'no') {
             line("'yes' is wrong answer ;(. Correct answer was 'no'.");
-            line("Lets try again, {$name}!");
+            line("Let's try again, {$name}!");
             break;
         } else {
             line("{$answer} is wrong answer ;(. Correct answer was 'no'.");
-            line("Lets try again, {$name}!");
+            line("Let's try again, {$name}!");
             break;
         }
     }

@@ -44,7 +44,7 @@ function progression($name, $array): bool
             return true;
     } else {
         line("{$answer} is wrong answer ;(. Correct answer was {$result}.");
-        line("Lets try again, {$name}!");
+        line("Let's try again, {$name}!");
         return false;
     }
 }

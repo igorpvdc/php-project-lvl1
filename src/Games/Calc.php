@@ -38,7 +38,7 @@ function calc($name = '', $array1 = [], $array2 = [])
             $correctAnswers++;
         } else {
             line("{$answer} is wrong answer ;(. Correct answer was {$result}.");
-            line("Lets try again, {$name}!");
+            line("Let's try again, {$name}!");
             break;
         }
     }
