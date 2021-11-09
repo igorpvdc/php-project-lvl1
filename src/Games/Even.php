@@ -6,7 +6,7 @@ use function Brain\Games\Cli\greeting;
 use function cli\line;
 use function cli\prompt;
 
-function isEven($name = '', $array = [])
+function isEven($name = '', $array = []): string
 {
     if ($name !== '' && $array !== []) {
     } else {

@@ -6,7 +6,7 @@ use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Cli\greeting;
 
-function findGcd($name = '', $array1 = [], $array2 = [])
+function findGcd($name = '', $array1 = [], $array2 = []): string
 {
     if ($name !== '' && $array1 !== [] && $array2 !== []) {
     } else {
@@ -39,7 +39,7 @@ function findGcd($name = '', $array1 = [], $array2 = [])
     }
 }
 
-function gcd($num1, $num2)
+function gcd($num1, $num2): int
 {
     return ($num1 % $num2) ? gcd($num2, $num1 % $num2) : $num2;
 }

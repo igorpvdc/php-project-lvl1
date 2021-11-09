@@ -6,7 +6,7 @@ use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Cli\greeting;
 
-function primeGame($name = '', $array = [])
+function primeGame($name = '', $array = []): string
 {
     if ($name !== '' && $array !== []) {
     } else {
@@ -42,7 +42,7 @@ function primeGame($name = '', $array = [])
     }
 }
 
-function isPrime($num)
+function isPrime($num): bool
 {
     if ($num === 1) {
         return false;

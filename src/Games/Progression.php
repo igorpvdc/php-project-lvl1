@@ -49,7 +49,7 @@ function progression($name, $array): bool
     }
 }
 
-function randomArrayWithProgression()
+function randomArrayWithProgression(): array
 {
     $randomInt = random_int(0, 100);
     $randomInt2 = random_int(5, 12);
@@ -64,7 +64,7 @@ function randomArrayWithProgression()
     return $array4;
 }
 
-function hideOneNumberInArray($int, $array)
+function hideOneNumberInArray($int, $array): array
 {
     foreach ($array as $value) {
         if ($array[$int] === $value) {
