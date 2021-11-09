@@ -41,9 +41,9 @@ function findGcd(string $name = '', array $array1 = [], array $array2 = []): voi
 
 function gcd(int $num1, int $num2): int
 {
-    if ($num1 > 0) {
-        return gcd($num1, $num2 % $num1);
+    if ($num2 > 0) {
+        return gcd($num2, $num1 % $num2);
     } else {
-        return abs($num2);
+        return abs($num1);
     }
 }
