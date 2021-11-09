@@ -39,7 +39,7 @@ function findGcd(string $name = '', array $array1 = [], array $array2 = []): voi
     }
 }
 
-function gcd(int $num1, int $num2): bool
+function gcd(int $num1, int $num2): mixed
 {
     return ($num1 % $num2) ? gcd($num2, $num1 % $num2) : $num2;
 }
