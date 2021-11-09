@@ -66,6 +66,8 @@ function randomArrayWithProgression(): array
 
 function hideOneNumberInArray(int $int, array $array): array
 {
+    $newArray = [];
+
     foreach ($array as $value) {
         if ($array[$int] === $value) {
             $newArray[] = '..';

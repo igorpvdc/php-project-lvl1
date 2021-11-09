@@ -42,7 +42,7 @@ function primeGame(string $name = '', array $array = []): void
     }
 }
 
-function isPrime($num): bool
+function isPrime(int $num): bool
 {
     if ($num === 1) {
         return false;

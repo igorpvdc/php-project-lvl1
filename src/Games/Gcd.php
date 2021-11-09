@@ -24,7 +24,7 @@ function findGcd(string $name = '', array $array1 = [], array $array2 = []): voi
         line("Question: {$array1[$i]} {$array2[$i]}");
         $answer = prompt("Your answer");
 
-        if ((int) $result === (int) $answer) {
+        if ($result === (int) $answer) {
             line("Correct!");
             $correctAnswers++;
         } else {
@@ -39,7 +39,7 @@ function findGcd(string $name = '', array $array1 = [], array $array2 = []): voi
     }
 }
 
-function gcd(int $num1, int $num2): int
+function gcd(int $num1, int $num2): bool
 {
     return ($num1 % $num2) ? gcd($num2, $num1 % $num2) : $num2;
 }
