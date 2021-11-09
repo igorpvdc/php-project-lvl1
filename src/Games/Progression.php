@@ -6,7 +6,7 @@ use function Brain\Games\Cli\greeting;
 use function cli\line;
 use function cli\prompt;
 
-function progressionGame()
+function progressionGame(): void
 {
     $array3 = randomArrayWithProgression();
     $array4 = randomArrayWithProgression();
@@ -26,7 +26,7 @@ function progressionGame()
     }
 }
 
-function progression($name, $array): bool
+function progression(string $name, array $array): bool
 {
 
     $randomInt = random_int(0, count($array) - 1);
@@ -64,7 +64,7 @@ function randomArrayWithProgression(): array
     return $array4;
 }
 
-function hideOneNumberInArray($int, $array): array
+function hideOneNumberInArray(int $int, array $array): array
 {
     foreach ($array as $value) {
         if ($array[$int] === $value) {

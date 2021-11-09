@@ -12,7 +12,7 @@ use function Brain\Games\Calc\calc;
 use function Brain\Games\Gcd\findGcd;
 use function Brain\Games\Prime\primeGame;
 
-function engine()
+function engine(): void
 {
     $array1 = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
     $array2 = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
