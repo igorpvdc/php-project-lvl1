@@ -2,47 +2,22 @@
 
 namespace Brain\Games\Engine;
 
-use function Brain\Games\Progression\progression;
-use function Brain\Games\Progression\randomArrayWithProgression;
 use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Cli\greeting;
-use function Brain\Games\Even\isEven;
-use function Brain\Games\Calc\calc;
-use function Brain\Games\Gcd\findGcd;
-use function Brain\Games\Prime\primeGame;
 
-function engine(): void
+function engine(string $name, int $int, string $correctAnswer, string $question): bool
 {
-    $array1 = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
-    $array2 = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
-    $array3 = randomArrayWithProgression();
-    $array4 = randomArrayWithProgression();
-    $array5 = randomArrayWithProgression();
+    line($question);
+    line("Question: $int");
+    $answer = prompt("Your answer");
 
-    $name = greeting();
-    line('Choose a game you want to play');
-    line("\"even\" or \"calc\" or \"gcd\" or \"progression\" or \"prime\"");
-    $game = prompt('Your choice is');
-
-    if ($game === 'even') {
-        isEven($name, $array1);
-    } elseif ($game === 'calc') {
-        calc($name, $array1, $array2);
-    } elseif ($game === 'gcd') {
-        findGcd($name, $array1, $array2);
-    } elseif ($game === 'progression') {
-        $result1 = progression($name, $array3);
-        if ($result1 === true) {
-            $result2 = progression($name, $array4);
-            if ($result2 === true) {
-                $result3 = progression($name, $array5);
-                if ($result3 === true) {
-                    line("Congratulations, {$name}!");
-                }
-            }
-        }
-    } elseif ($game === 'prime') {
-        primeGame($name, $array1);
+    if ($answer === $correctAnswer) {
+        line("Correct!");
+        return true;
+    } else {
+        line("{$answer} is wrong answer ;(. Correct answer was {$correctAnswer}.");
+        line("Let's try again, {$name}!");
+        return false;
     }
 }

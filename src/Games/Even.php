@@ -2,50 +2,39 @@
 
 namespace Brain\Games\Even;
 
+use function Brain\Games\Engine\engine;
 use function Brain\Games\Cli\greeting;
 use function cli\line;
-use function cli\prompt;
 
-function isEven(string $name = '', array $array = []): void
+function evenGame(): void
 {
-    if ($name !== '' && $array !== []) {
-    } else {
-        $name = greeting();
-        $array = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
-    }
+    $name = greeting();
 
-    $correctAnswers = 0;
+    $question = "Answer \"yes\" if the number is even, otherwise answer \"no\".";
 
-    foreach ($array as $int) {
-        if ($int % 2 === 0) {
-            $isEven = 'yes';
+    $data = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
+
+    $countCorrectAnswers = 0;
+
+    foreach ($data as $int) {
+        $correctAnswer = isEven($int);
+
+        if (engine($name, $int, $correctAnswer, $question)) {
+            $countCorrectAnswers++;
         } else {
-            $isEven = 'no';
-        }
-
-        line("Answer \"yes\" if the number is even, otherwise answer \"no\".");
-        line("Question: $int");
-        $answer = prompt("Your answer");
-
-        if ($isEven === $answer) {
-            line("Correct!");
-            $correctAnswers++;
-        } elseif ($answer === 'no' && $isEven === 'yes') {
-            line("'no' is wrong answer ;(. Correct answer was 'yes'.");
-            line("Let's try again, {$name}!");
-            break;
-        } elseif ($answer === 'yes' && $isEven === 'no') {
-            line("'yes' is wrong answer ;(. Correct answer was 'no'.");
-            line("Let's try again, {$name}!");
-            break;
-        } else {
-            line("{$answer} is wrong answer ;(. Correct answer was 'no'.");
-            line("Let's try again, {$name}!");
             break;
         }
     }
 
-    if ($correctAnswers === 3) {
+    if ($countCorrectAnswers === 3) {
         line("Congratulations, {$name}!");
     }
+}
+
+function isEven(int $num): string
+{
+    if ($num % 2 === 0) {
+        return 'yes';
+    }
+    return 'no';
 }
