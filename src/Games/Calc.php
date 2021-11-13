@@ -2,48 +2,41 @@
 
 namespace Brain\Games\Calc;
 
-use function cli\line;
-use function cli\prompt;
 use function Brain\Games\Cli\greeting;
+use function Brain\Games\Engine\engine;
 
-function calc(string $name = '', array $array1 = [], array $array2 = []): void
+function calc(): void
 {
-    if ($name !== '' && $array1 !== [] && $array2 !== []) {
-    } else {
-        $name = greeting();
-        $array1 = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
-        $array2 = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
-    }
+    $name = greeting();
+    $array1 = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
+    $array2 = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
+    $questionText = "What is the result of the expression?";
 
-    $correctAnswers = 0;
+    $countCorrectAnswers = 0;
     $sign = ['-', '+', '*'];
 
     for ($i = 0, $len = count($array1); $i < $len; $i++) {
         $randomsign = array_rand($sign);
 
         if ($randomsign === 0) {
-            $result = $array1[$i] - $array2[$i];
+            $questionNumbers = "{$array1[$i]} - {$array2[$i]}";
+            $correctAnswer = $array1[$i] - $array2[$i];
         } elseif ($randomsign === 1) {
-            $result = $array1[$i] + $array2[$i];
+            $questionNumbers = "{$array1[$i]} + {$array2[$i]}";
+            $correctAnswer = $array1[$i] + $array2[$i];
         } else {
-            $result = $array1[$i] * $array2[$i];
+            $questionNumbers = "{$array1[$i]} * {$array2[$i]}";
+            $correctAnswer = $array1[$i] * $array2[$i];
         }
 
-        line("What is the result of the expression?");
-        line("Question: {$array1[$i]} {$sign[$randomsign]} {$array2[$i]}");
-        $answer = prompt("Your answer");
-
-        if ($result === (int) $answer) {
-            line("Correct!");
-            $correctAnswers++;
+        if (engine($name, $questionNumbers, $correctAnswer, $questionText)) {
+            $countCorrectAnswers++;
         } else {
-            line("{$answer} is wrong answer ;(. Correct answer was {$result}.");
-            line("Let's try again, {$name}!");
             break;
         }
     }
 
-    if ($correctAnswers === 3) {
-        line("Congratulations, {$name}!");
+    if ($countCorrectAnswers === 3) {
+        echo("Congratulations, {$name}!\n");
     }
 }

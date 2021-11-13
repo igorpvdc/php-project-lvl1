@@ -6,10 +6,10 @@ use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Cli\greeting;
 
-function engine(string $name, int $int, string $correctAnswer, string $question): bool
+function engine(string $name, mixed $questionNumbers, string $correctAnswer, string $questionText): bool
 {
-    line($question);
-    line("Question: $int");
+    line($questionText);
+    line("Question: $questionNumbers");
     $answer = prompt("Your answer");
 
     if ($answer === $correctAnswer) {

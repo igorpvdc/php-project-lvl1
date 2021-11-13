@@ -4,13 +4,12 @@ namespace Brain\Games\Even;
 
 use function Brain\Games\Engine\engine;
 use function Brain\Games\Cli\greeting;
-use function cli\line;
 
 function evenGame(): void
 {
     $name = greeting();
 
-    $question = "Answer \"yes\" if the number is even, otherwise answer \"no\".";
+    $questionText = "Answer \"yes\" if the number is even, otherwise answer \"no\".";
 
     $data = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
 
@@ -19,7 +18,9 @@ function evenGame(): void
     foreach ($data as $int) {
         $correctAnswer = isEven($int);
 
-        if (engine($name, $int, $correctAnswer, $question)) {
+        $questionNumbers = $int;
+
+        if (engine($name, $questionNumbers, $correctAnswer, $questionText)) {
             $countCorrectAnswers++;
         } else {
             break;
@@ -27,7 +28,7 @@ function evenGame(): void
     }
 
     if ($countCorrectAnswers === 3) {
-        line("Congratulations, {$name}!");
+        echo("Congratulations, {$name}!\n");
     }
 }
 
