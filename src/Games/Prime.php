@@ -2,44 +2,25 @@
 
 namespace Brain\Games\Prime;
 
-use function cli\line;
-use function cli\prompt;
-use function Brain\Games\Cli\greeting;
+use function Brain\Games\Engine\engine;
 
-function primeGame(string $name = '', array $array = []): void
+function primeGame(): void
 {
-    if ($name !== '' && $array !== []) {
-    } else {
-        $name = greeting();
-        $array = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
-    }
+    $array = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
 
-    $correctAnswers = 0;
+    $questionText = "Answer \"yes\" if given number is prime. Otherwise answer \"no\".";
+
+    $arrayQuestionsAnswers = [];
 
     foreach ($array as $int) {
-        $result = isPrime($int);
-
-        line("Answer \"yes\" if given number is prime. Otherwise answer \"no\".");
-        line("Question: {$int}");
-        $answer = prompt("Your answer");
-
-        if (($answer === 'yes' && $result === true) || ($answer === 'no' && $result === false)) {
-            line("Correct!");
-            $correctAnswers++;
-        } elseif ($answer === 'no' && $result === true) {
-            line("{$answer} is wrong answer ;(. Correct answer was \"yes\".");
-            line("Let's try again, {$name}!");
-            break;
+        if (isPrime($int)) {
+            $arrayQuestionsAnswers[] = [$int, 'yes'];
         } else {
-            line("{$answer} is wrong answer ;(. Correct answer was \"no\".");
-            line("Let's try again, {$name}!");
-            break;
+            $arrayQuestionsAnswers[] = [$int, 'no'];
         }
     }
 
-    if ($correctAnswers === 3) {
-        line("Congratulations, {$name}!");
-    }
+    engine($arrayQuestionsAnswers, $questionText);
 }
 
 function isPrime(int $num): bool

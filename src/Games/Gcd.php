@@ -2,41 +2,21 @@
 
 namespace Brain\Games\Gcd;
 
-use function cli\line;
-use function cli\prompt;
-use function Brain\Games\Cli\greeting;
+use function Brain\Games\Engine\engine;
 
-function findGcd(string $name = '', array $array1 = [], array $array2 = []): void
+function findGcd(): void
 {
-    if ($name !== '' && $array1 !== [] && $array2 !== []) {
-    } else {
-        $name = greeting();
-        $array1 = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
-        $array2 = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
-    }
+    $array1 = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
+    $array2 = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
+    $questionText = "Find the greatest common divisor of given numbers.";
 
-    $correctAnswers = 0;
+    $arrayQuestionsAnswers = [];
 
     for ($i = 0, $len = count($array1); $i < $len; $i++) {
-        $result = gcd($array1[$i], $array2[$i]);
-
-        line("Find the greatest common divisor of given numbers.");
-        line("Question: {$array1[$i]} {$array2[$i]}");
-        $answer = prompt("Your answer");
-
-        if ($result === (int) $answer) {
-            line("Correct!");
-            $correctAnswers++;
-        } else {
-            line("{$answer} is wrong answer ;(. Correct answer was {$result}.");
-            line("Let's try again, {$name}!");
-            break;
-        }
+        $question = ["{$array1[$i]} {$array2[$i]}", gcd($array1[$i], $array2[$i])];
+        $arrayQuestionsAnswers[] = $question;
     }
-
-    if ($correctAnswers === 3) {
-        line("Congratulations, {$name}!");
-    }
+    engine($arrayQuestionsAnswers, $questionText);
 }
 
 function gcd(int $num1, int $num2): int
