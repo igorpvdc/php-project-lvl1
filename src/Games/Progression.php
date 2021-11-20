@@ -12,9 +12,7 @@ function progressionGame(): void
 
     $questionText = "What number is missing in the progression?";
 
-    $arrayQuestionsAnswers[] = progression($array3);
-    $arrayQuestionsAnswers[] = progression($array4);
-    $arrayQuestionsAnswers[] = progression($array5);
+    $arrayQuestionsAnswers = [progression($array3), progression($array4), progression($array5)];
 
     engine($arrayQuestionsAnswers, $questionText);
 }
