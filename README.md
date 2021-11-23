@@ -13,12 +13,6 @@
 
 <code>make install</code>
 
-<h3>Общий запуск с меню для выбора конкретной игры</h3>
-
-<code>make brain-games</code>
-
-<a href="https://asciinema.org/a/c63BUDtOJIez7TdSdLLGfXGYj">Demo of brain-games</a>
-
 <h3>Запуск игры "Является ли число чётным?"</h3>
 
 <code>make brain-even</code>

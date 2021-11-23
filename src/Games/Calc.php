@@ -6,25 +6,29 @@ use function Brain\Games\Engine\engine;
 
 function calc(): void
 {
-    $array1 = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
-    $array2 = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
     $questionText = "What is the result of the expression?";
-
-    $sign = ['-', '+', '*'];
-
     $arrayQuestionsAnswers = [];
 
-    for ($i = 0, $len = count($array1); $i < $len; $i++) {
-        $randomsign = array_rand($sign);
-
-        if ($randomsign === 0) {
-            $question = ["{$array1[$i]} - {$array2[$i]}", $array1[$i] - $array2[$i]];
-        } elseif ($randomsign === 1) {
-            $question = ["{$array1[$i]} + {$array2[$i]}", $array1[$i] + $array2[$i]];
-        } else {
-            $question = ["{$array1[$i]} * {$array2[$i]}", $array1[$i] * $array2[$i]];
-        }
-        $arrayQuestionsAnswers[] = $question;
+    for ($i = 0; $i < 3; $i++) {
+        $number1 = random_int(1, 100);
+        $number2 = random_int(1, 100);
+        $arrayQuestionsAnswers[] = randomExpression($number1, $number2);
     }
+
     engine($arrayQuestionsAnswers, $questionText);
+}
+
+function randomExpression(int $num1, int $num2): array
+{
+    $signs = ['-', '+', '*'];
+    $randomSign = array_rand($signs);
+
+    switch ($randomSign) {
+        case 0:
+            return ["{$num1} - {$num2}", $num1 - $num2];
+        case 1:
+            return ["{$num1} + {$num2}", $num1 + $num2];
+        case 2:
+            return ["{$num1} * {$num2}", $num1 * $num2];
+    }
 }

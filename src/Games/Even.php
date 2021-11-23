@@ -3,23 +3,22 @@
 namespace Brain\Games\Even;
 
 use function Brain\Games\Engine\engine;
-use function Brain\Games\Cli\greeting;
 
 function evenGame(): void
 {
     $questionText = "Answer \"yes\" if the number is even, otherwise answer \"no\".";
-
-    $data = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
-
     $arrayQuestionsAnswers = [];
 
-    foreach ($data as $int) {
-        if ($int % 2 === 0) {
-            $question = [$int, 'yes'];
+    for ($i = 0; $i < 3; $i++) {
+        $number = random_int(1, 100);
+
+        if ($number % 2 === 0) {
+            $question = [$number, 'yes'];
         } else {
-            $question = [$int, 'no'];
+            $question = [$number, 'no'];
         }
         $arrayQuestionsAnswers[] = $question;
     }
+
     engine($arrayQuestionsAnswers, $questionText);
 }
