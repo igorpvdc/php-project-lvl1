@@ -25,10 +25,14 @@ function randomExpression(int $num1, int $num2): array
 
     switch ($randomSign) {
         case 0:
-            return ["{$num1} - {$num2}", $num1 - $num2];
+            $question = ["{$num1} - {$num2}", $num1 - $num2];
+            break;
         case 1:
-            return ["{$num1} + {$num2}", $num1 + $num2];
+            $question = ["{$num1} + {$num2}", $num1 + $num2];
+            break;
         case 2:
-            return ["{$num1} * {$num2}", $num1 * $num2];
+            $question = ["{$num1} * {$num2}", $num1 * $num2];
+            break;
     }
+    return $question;
 }
