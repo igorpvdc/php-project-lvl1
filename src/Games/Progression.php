@@ -6,13 +6,13 @@ use function Brain\Games\Engine\engine;
 
 function progressionGame(): void
 {
-    $randomArray1 = randomArrayWithProgression();
-    $randomArray2 = randomArrayWithProgression();
-    $randomArray3 = randomArrayWithProgression();
-
     $questionText = "What number is missing in the progression?";
+    $arrayQuestionsAnswers = [];
 
-    $arrayQuestionsAnswers = [progression($randomArray1), progression($randomArray2), progression($randomArray3)];
+    for ($i = 0; $i < 3; $i++) {
+        $randomArray = randomArrayWithProgression();
+        $arrayQuestionsAnswers[] = progression($randomArray);
+    }
 
     engine($arrayQuestionsAnswers, $questionText);
 }

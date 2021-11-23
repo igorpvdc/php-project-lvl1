@@ -6,14 +6,13 @@ use function Brain\Games\Engine\engine;
 
 function findGcd(): void
 {
-    $array1 = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
-    $array2 = [random_int(1, 100), random_int(1, 100), random_int(1, 100)];
     $questionText = "Find the greatest common divisor of given numbers.";
-
     $arrayQuestionsAnswers = [];
 
-    for ($i = 0, $len = count($array1); $i < $len; $i++) {
-        $question = ["{$array1[$i]} {$array2[$i]}", gcd($array1[$i], $array2[$i])];
+    for ($i = 0; $i < 3; $i++) {
+        $number1 = random_int(1, 100);
+        $number2 = random_int(1, 100);
+        $question = ["{$number1} {$number2}", gcd($number1, $number2)];
         $arrayQuestionsAnswers[] = $question;
     }
     engine($arrayQuestionsAnswers, $questionText);

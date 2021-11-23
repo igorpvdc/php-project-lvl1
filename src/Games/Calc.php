@@ -18,6 +18,9 @@ function calc(): void
     engine($arrayQuestionsAnswers, $questionText);
 }
 
+/**
+ * @throws \Exception
+ */
 function randomExpression(int $num1, int $num2): array
 {
     $signs = ['-', '+', '*'];
@@ -25,14 +28,12 @@ function randomExpression(int $num1, int $num2): array
 
     switch ($randomSign) {
         case 0:
-            $question = ["{$num1} - {$num2}", $num1 - $num2];
-            break;
+            return ["{$num1} - {$num2}", $num1 - $num2];
         case 1:
-            $question = ["{$num1} + {$num2}", $num1 + $num2];
-            break;
+            return ["{$num1} + {$num2}", $num1 + $num2];
         case 2:
-            $question = ["{$num1} * {$num2}", $num1 * $num2];
-            break;
+            return ["{$num1} * {$num2}", $num1 * $num2];
+        default:
+            throw new \Exception('Error');
     }
-    return $question;
 }
