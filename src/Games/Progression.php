@@ -21,7 +21,8 @@ function progressionGame(): void
 
 function createArrayWithProgression(array $array): array
 {
-    $randomInt = random_int(0, count($array) - 1);
+    $lastIndexOfArray = count($array) - 1;
+    $randomInt = random_int(0, $lastIndexOfArray);
 
     $result = $array[$randomInt];
 
