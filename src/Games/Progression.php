@@ -22,11 +22,11 @@ function progressionGame(): void
 function createArrayWithProgression(array $array): array
 {
     $lastIndexOfArray = count($array) - 1;
-    $randomInt = random_int(0, (int) $lastIndexOfArray);
+    $randomIndex = random_int(0, $lastIndexOfArray);
 
-    $result = $array[$randomInt];
+    $result = $array[$randomIndex];
 
-    $arrayForUser = implode(' ', hideOneNumberInArray($randomInt, $array));
+    $arrayForUser = implode(' ', hideOneNumberInArray($randomIndex, $array));
 
     return [$arrayForUser, $result];
 }
