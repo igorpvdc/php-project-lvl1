@@ -24,7 +24,7 @@ function calc(): void
 /**
  * @throws \Exception
  */
-function randomExpression(string $randomSign, int $num1, int $num2): array
+function randomExpression(int $randomSign, int $num1, int $num2): array
 {
     switch ($randomSign) {
         case 0:
