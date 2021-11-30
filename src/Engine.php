@@ -4,30 +4,33 @@ namespace Brain\Games\Engine;
 
 use function cli\line;
 use function cli\prompt;
-use function Brain\Games\Cli\greeting;
 
-function engine(array $arrayQuestionsNumbers, string $questionText): void
+const NUMBER_OF_ROUNDS_TO_WIN = 3;
+
+function engine(array $arrayQuestionsAnswers, string $questionText): void
 {
-    $name = greeting();
+    line('Welcome to the Brain Game!');
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
 
-    $correctAnswers = 0;
+    $correctAnswersOfUser = 0;
 
-    foreach ($arrayQuestionsNumbers as $array) {
+    foreach ($arrayQuestionsAnswers as [$questionNumbers, $correctAnswer]) {
         line($questionText);
-        line("Question: $array[0]");
+        line("Question: $questionNumbers");
         $answer = prompt("Your answer");
 
-        if ($answer == $array[1]) {
+        if ($answer == $correctAnswer) {
             line("Correct!");
-            $correctAnswers++;
+            $correctAnswersOfUser++;
         } else {
-            line("\"{$answer}\" is wrong answer ;(. Correct answer was \"{$array[1]}\".");
+            line("\"{$answer}\" is wrong answer ;(. Correct answer was \"{$correctAnswer}\".");
             line("Let's try again, {$name}!");
             break;
         }
     }
 
-    if ($correctAnswers === 3) {
+    if ($correctAnswersOfUser === NUMBER_OF_ROUNDS_TO_WIN) {
         line("Congratulations, {$name}!");
     }
 }

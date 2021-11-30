@@ -4,20 +4,22 @@ namespace Brain\Games\Prime;
 
 use function Brain\Games\Engine\engine;
 
+use const Brain\Games\Engine\NUMBER_OF_ROUNDS_TO_WIN;
+
 function primeGame(): void
 {
     $questionText = "Answer \"yes\" if given number is prime. Otherwise answer \"no\".";
     $arrayQuestionsAnswers = [];
 
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < NUMBER_OF_ROUNDS_TO_WIN; $i++) {
         $number = random_int(1, 100);
 
         if (isPrime($number)) {
-            $question = [$number, 'yes'];
+            $questionAnswer = [$number, 'yes'];
         } else {
-            $question = [$number, 'no'];
+            $questionAnswer = [$number, 'no'];
         }
-        $arrayQuestionsAnswers[] = $question;
+        $arrayQuestionsAnswers[] = $questionAnswer;
     }
 
     engine($arrayQuestionsAnswers, $questionText);

@@ -4,20 +4,22 @@ namespace Brain\Games\Even;
 
 use function Brain\Games\Engine\engine;
 
+use const Brain\Games\Engine\NUMBER_OF_ROUNDS_TO_WIN;
+
 function evenGame(): void
 {
     $questionText = "Answer \"yes\" if the number is even, otherwise answer \"no\".";
     $arrayQuestionsAnswers = [];
 
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < NUMBER_OF_ROUNDS_TO_WIN; $i++) {
         $number = random_int(1, 100);
 
         if ($number % 2 === 0) {
-            $question = [$number, 'yes'];
+            $questionAnswer = [$number, 'yes'];
         } else {
-            $question = [$number, 'no'];
+            $questionAnswer = [$number, 'no'];
         }
-        $arrayQuestionsAnswers[] = $question;
+        $arrayQuestionsAnswers[] = $questionAnswer;
     }
 
     engine($arrayQuestionsAnswers, $questionText);

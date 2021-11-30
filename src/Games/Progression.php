@@ -4,20 +4,22 @@ namespace Brain\Games\Progression;
 
 use function Brain\Games\Engine\engine;
 
+use const Brain\Games\Engine\NUMBER_OF_ROUNDS_TO_WIN;
+
 function progressionGame(): void
 {
     $questionText = "What number is missing in the progression?";
     $arrayQuestionsAnswers = [];
 
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < NUMBER_OF_ROUNDS_TO_WIN; $i++) {
         $randomArray = randomArrayWithProgression();
-        $arrayQuestionsAnswers[] = progression($randomArray);
+        $arrayQuestionsAnswers[] = createArrayWithProgression($randomArray);
     }
 
     engine($arrayQuestionsAnswers, $questionText);
 }
 
-function progression(array $array): array
+function createArrayWithProgression(array $array): array
 {
     $randomInt = random_int(0, count($array) - 1);
 

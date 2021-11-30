@@ -9,9 +9,6 @@
         "bin/brain-prime"
     ],
     "autoload": {
-        "psr-4": {
-            "Hexlet\\Code\\": "src/"
-        },
         "files": [
             "src/Cli.php",
             "src/Games/Even.php",
