@@ -17,30 +17,28 @@
 
 <code>make brain-even</code>
 
-<a href="https://asciinema.org/a/yrXe05EiILt2fjxlfu7N6Qinb">Demo of brain-even</a>
-
-<script id="asciicast-yrXe05EiILt2fjxlfu7N6Qinb" src="https://asciinema.org/a/yrXe05EiILt2fjxlfu7N6Qinb.js" async></script>
+[![asciicast](https://asciinema.org/a/yrXe05EiILt2fjxlfu7N6Qinb.svg)](https://asciinema.org/a/yrXe05EiILt2fjxlfu7N6Qinb)
 
 ### Запуск игры *"Калькулятор"*
 
 <code>make brain-calc</code>
 
-<a href="https://asciinema.org/a/fZ9o67yp18sF3NuMHIeWGR7dH">Demo of brain-calc</a>
+[![asciicast](https://asciinema.org/a/fZ9o67yp18sF3NuMHIeWGR7dH.svg)](https://asciinema.org/a/fZ9o67yp18sF3NuMHIeWGR7dH)
 
 ### Запуск игры *"Общий делитель"*
 
 <code>make brain-gcd</code>
 
-<a href="https://asciinema.org/a/O8QyaBObnHO7GGJflLvu4gM9d">Demo of brain-gcd</a>
+[![asciicast](https://asciinema.org/a/O8QyaBObnHO7GGJflLvu4gM9d.svg)](https://asciinema.org/a/O8QyaBObnHO7GGJflLvu4gM9d)
 
 ### Запуск игры *"Арифметиеская прогрессия"*
 
 <code>make brain-progression</code>
 
-<a href="https://asciinema.org/a/xCUt1OjwdF9dwobIRUQ08tmZ2">Demo of brain-progression</a>
+[![asciicast](https://asciinema.org/a/xCUt1OjwdF9dwobIRUQ08tmZ2.svg)](https://asciinema.org/a/xCUt1OjwdF9dwobIRUQ08tmZ2)
 
 ### Запуск игры *"Является ли число простым?"*
 
 <code>make brain-prime</code>
 
-<a href="https://asciinema.org/a/r7yHtc8rAjOaUJFOrImY6d3Id">Demo of brain-prime</a>
+[![asciicast](https://asciinema.org/a/r7yHtc8rAjOaUJFOrImY6d3Id.svg)](https://asciinema.org/a/r7yHtc8rAjOaUJFOrImY6d3Id)
