@@ -2,25 +2,25 @@
 
 namespace Brain\Games\Even;
 
-use function Brain\Games\Engine\engine;
+use function Brain\Engine\startBrainGame;
 
-use const Brain\Games\Engine\NUMBER_OF_ROUNDS_TO_WIN;
+use const Brain\Engine\NUMBER_OF_ROUNDS_TO_WIN;
 
-function evenGame(): void
+function startEvenGame(): void
 {
     $questionText = "Answer \"yes\" if the number is even, otherwise answer \"no\".";
-    $arrayQuestionsAnswers = [];
+    $gameData = [];
 
     for ($i = 0; $i < NUMBER_OF_ROUNDS_TO_WIN; $i++) {
         $number = random_int(1, 100);
 
         if ($number % 2 === 0) {
-            $questionAnswer = [$number, 'yes'];
+            $questionAndAnswer = [$number, 'yes'];
         } else {
-            $questionAnswer = [$number, 'no'];
+            $questionAndAnswer = [$number, 'no'];
         }
-        $arrayQuestionsAnswers[] = $questionAnswer;
+        $gameData[] = $questionAndAnswer;
     }
 
-    engine($arrayQuestionsAnswers, $questionText);
+    startBrainGame($gameData, $questionText);
 }

@@ -1,13 +1,13 @@
 <?php
 
-namespace Brain\Games\Engine;
+namespace Brain\Engine;
 
 use function cli\line;
 use function cli\prompt;
 
 const NUMBER_OF_ROUNDS_TO_WIN = 3;
 
-function engine(array $arrayQuestionsAnswers, string $questionText): void
+function startBrainGame(array $gameData, string $questionText): void
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
@@ -15,9 +15,9 @@ function engine(array $arrayQuestionsAnswers, string $questionText): void
 
     $correctAnswersOfUser = 0;
 
-    foreach ($arrayQuestionsAnswers as [$questionNumbers, $correctAnswer]) {
+    foreach ($gameData as [$question, $correctAnswer]) {
         line($questionText);
-        line("Question: $questionNumbers");
+        line("Question: $question");
         $answer = prompt("Your answer");
 
         if ($answer == $correctAnswer) {

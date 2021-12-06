@@ -2,23 +2,23 @@
 
 namespace Brain\Games\Calc;
 
-use function Brain\Games\Engine\engine;
+use function Brain\Engine\startBrainGame;
 
-use const Brain\Games\Engine\NUMBER_OF_ROUNDS_TO_WIN;
+use const Brain\Engine\NUMBER_OF_ROUNDS_TO_WIN;
 
-function calc(): void
+function startCalcGame(): void
 {
     $questionText = "What is the result of the expression?";
-    $arrayQuestionsAnswers = [];
+    $gameData = [];
     $signs = ['-', '+', '*'];
 
     for ($i = 0; $i < NUMBER_OF_ROUNDS_TO_WIN; $i++) {
         $number1 = random_int(1, 100);
         $number2 = random_int(1, 100);
-        $arrayQuestionsAnswers[] = randomExpression(array_rand($signs), $number1, $number2);
+        $gameData[] = randomExpression(array_rand($signs), $number1, $number2);
     }
 
-    engine($arrayQuestionsAnswers, $questionText);
+    startBrainGame($gameData, $questionText);
 }
 
 /**

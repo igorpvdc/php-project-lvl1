@@ -2,32 +2,32 @@
 
 namespace Brain\Games\Prime;
 
-use function Brain\Games\Engine\engine;
+use function Brain\Engine\startBrainGame;
 
-use const Brain\Games\Engine\NUMBER_OF_ROUNDS_TO_WIN;
+use const Brain\Engine\NUMBER_OF_ROUNDS_TO_WIN;
 
-function primeGame(): void
+function startPrimeGame(): void
 {
     $questionText = "Answer \"yes\" if given number is prime. Otherwise answer \"no\".";
-    $arrayQuestionsAnswers = [];
+    $gameData = [];
 
     for ($i = 0; $i < NUMBER_OF_ROUNDS_TO_WIN; $i++) {
         $number = random_int(1, 100);
 
         if (isPrime($number)) {
-            $questionAnswer = [$number, 'yes'];
+            $questionAndAnswer = [$number, 'yes'];
         } else {
-            $questionAnswer = [$number, 'no'];
+            $questionAndAnswer = [$number, 'no'];
         }
-        $arrayQuestionsAnswers[] = $questionAnswer;
+        $gameData[] = $questionAndAnswer;
     }
 
-    engine($arrayQuestionsAnswers, $questionText);
+    startBrainGame($gameData, $questionText);
 }
 
 function isPrime(int $num): bool
 {
-    if ($num === 1) {
+    if ($num < 2) {
         return false;
     }
 

@@ -2,32 +2,33 @@
 
 namespace Brain\Games\Progression;
 
-use function Brain\Games\Engine\engine;
+use function Brain\Engine\startBrainGame;
 
-use const Brain\Games\Engine\NUMBER_OF_ROUNDS_TO_WIN;
+use const Brain\Engine\NUMBER_OF_ROUNDS_TO_WIN;
 
-function progressionGame(): void
+function startProgressionGame(): void
 {
     $questionText = "What number is missing in the progression?";
-    $arrayQuestionsAnswers = [];
+    $gameData = [];
 
     for ($i = 0; $i < NUMBER_OF_ROUNDS_TO_WIN; $i++) {
         $randomArray = randomArrayWithProgression();
-        $arrayQuestionsAnswers[] = createArrayWithProgression($randomArray);
+        $gameData[] = createGameData($randomArray);
     }
 
-    engine($arrayQuestionsAnswers, $questionText);
+    startBrainGame($gameData, $questionText);
 }
 
-function createArrayWithProgression(array $array): array
+function createGameData(array $array): array
 {
-    $randomIndex = random_int(0, 5);
+    $lastIndex = count($array) - 1;
+    $randomIndex = random_int(0, $lastIndex);
 
-    $result = $array[$randomIndex];
+    $correctAnswer = $array[$randomIndex];
 
     $arrayForUser = implode(' ', hideOneNumberInArray($randomIndex, $array));
 
-    return [$arrayForUser, $result];
+    return [$arrayForUser, $correctAnswer];
 }
 
 function randomArrayWithProgression(): array
