@@ -20,13 +20,13 @@ function startBrainGame(array $gameData, string $questionText): void
         line("Question: $question");
         $answer = prompt("Your answer");
 
-        if ($answer == $correctAnswer) {
-            line("Correct!");
-            $correctAnswersOfUser++;
-        } else {
+        if ($answer != $correctAnswer) {
             line("\"{$answer}\" is wrong answer ;(. Correct answer was \"{$correctAnswer}\".");
             line("Let's try again, {$name}!");
-            break;
+            return;
+        } else {
+            line("Correct!");
+            $correctAnswersOfUser++;
         }
     }
 

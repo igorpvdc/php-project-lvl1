@@ -6,9 +6,10 @@ use function Brain\Engine\startBrainGame;
 
 use const Brain\Engine\NUMBER_OF_ROUNDS_TO_WIN;
 
+const QUESTION_TEXT = "Find the greatest common divisor of given numbers.";
+
 function startGcdGame(): void
 {
-    $questionText = "Find the greatest common divisor of given numbers.";
     $gameData = [];
 
     for ($i = 0; $i < NUMBER_OF_ROUNDS_TO_WIN; $i++) {
@@ -17,7 +18,7 @@ function startGcdGame(): void
         $questionAndAnswer = ["{$number1} {$number2}", findGcd($number1, $number2)];
         $gameData[] = $questionAndAnswer;
     }
-    startBrainGame($gameData, $questionText);
+    startBrainGame($gameData, QUESTION_TEXT);
 }
 
 function findGcd(int $num1, int $num2): int

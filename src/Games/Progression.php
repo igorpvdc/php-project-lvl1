@@ -6,9 +6,10 @@ use function Brain\Engine\startBrainGame;
 
 use const Brain\Engine\NUMBER_OF_ROUNDS_TO_WIN;
 
+const QUESTION_TEXT = "What number is missing in the progression?";
+
 function startProgressionGame(): void
 {
-    $questionText = "What number is missing in the progression?";
     $gameData = [];
 
     for ($i = 0; $i < NUMBER_OF_ROUNDS_TO_WIN; $i++) {
@@ -16,13 +17,14 @@ function startProgressionGame(): void
         $gameData[] = createGameData($randomArray);
     }
 
-    startBrainGame($gameData, $questionText);
+    startBrainGame($gameData, QUESTION_TEXT);
 }
 
 function createGameData(array $array): array
 {
+    $firstIndex = 0;
     $lastIndex = count($array) - 1;
-    $randomIndex = random_int(0, $lastIndex);
+    $randomIndex = random_int($firstIndex, $lastIndex);
 
     $correctAnswer = $array[$randomIndex];
 

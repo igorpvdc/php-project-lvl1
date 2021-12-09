@@ -6,9 +6,10 @@ use function Brain\Engine\startBrainGame;
 
 use const Brain\Engine\NUMBER_OF_ROUNDS_TO_WIN;
 
+const QUESTION_TEXT = "What is the result of the expression?";
+
 function startCalcGame(): void
 {
-    $questionText = "What is the result of the expression?";
     $gameData = [];
     $signs = ['-', '+', '*'];
 
@@ -18,7 +19,7 @@ function startCalcGame(): void
         $gameData[] = randomExpression(array_rand($signs), $number1, $number2);
     }
 
-    startBrainGame($gameData, $questionText);
+    startBrainGame($gameData, QUESTION_TEXT);
 }
 
 /**

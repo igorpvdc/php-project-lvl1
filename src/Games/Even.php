@@ -6,9 +6,10 @@ use function Brain\Engine\startBrainGame;
 
 use const Brain\Engine\NUMBER_OF_ROUNDS_TO_WIN;
 
+const QUESTION_TEXT = "Answer \"yes\" if the number is even, otherwise answer \"no\".";
+
 function startEvenGame(): void
 {
-    $questionText = "Answer \"yes\" if the number is even, otherwise answer \"no\".";
     $gameData = [];
 
     for ($i = 0; $i < NUMBER_OF_ROUNDS_TO_WIN; $i++) {
@@ -22,5 +23,5 @@ function startEvenGame(): void
         $gameData[] = $questionAndAnswer;
     }
 
-    startBrainGame($gameData, $questionText);
+    startBrainGame($gameData, QUESTION_TEXT);
 }
