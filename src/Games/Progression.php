@@ -13,18 +13,21 @@ function startProgressionGame(): void
     $gameData = [];
 
     for ($i = 0; $i < NUMBER_OF_ROUNDS_TO_WIN; $i++) {
-        $randomArray = randomArrayWithProgression();
-        $gameData[] = createGameData($randomArray);
+        $firstNumber = random_int(0, 100);
+        $amountOfNumbers = random_int(5, 12);
+        $stepOfProgression = random_int(1, 10);
+        $lastIndexInArrayWithProgression = $amountOfNumbers - 1;
+
+        $randomArray = randomArrayWithProgression($firstNumber, $amountOfNumbers, $stepOfProgression);
+        $gameData[] = createGameData($randomArray, $lastIndexInArrayWithProgression);
     }
 
     startBrainGame($gameData, QUESTION_TEXT);
 }
 
-function createGameData(array $array): array
+function createGameData(array $array, int $lastIndexInArrayWithProgression): array
 {
-    $firstIndex = 0;
-    $lastIndex = count($array) - 1;
-    $randomIndex = random_int($firstIndex, $lastIndex);
+    $randomIndex = random_int(0, $lastIndexInArrayWithProgression);
 
     $correctAnswer = $array[$randomIndex];
 
@@ -33,15 +36,11 @@ function createGameData(array $array): array
     return [$arrayForUser, $correctAnswer];
 }
 
-function randomArrayWithProgression(): array
+function randomArrayWithProgression(int $firstNumber, int $amountOfNumbers, int $stepOfProgression): array
 {
-    $randomInt = random_int(0, 100);
-    $randomInt2 = random_int(5, 12);
-    $randomInt3 = random_int(1, 10);
-
     $arrayWithProgression = [];
 
-    for ($i = $randomInt; count($arrayWithProgression) <= $randomInt2; $i = $i + $randomInt3) {
+    for ($i = $firstNumber; count($arrayWithProgression) <= $amountOfNumbers; $i += $stepOfProgression) {
         $arrayWithProgression[] = $i;
     }
 
