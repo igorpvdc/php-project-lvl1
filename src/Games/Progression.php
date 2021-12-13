@@ -6,9 +6,9 @@ use function Brain\Engine\startBrainGame;
 
 use const Brain\Engine\NUMBER_OF_ROUNDS_TO_WIN;
 
-const QUESTION_TEXT = "What number is missing in the progression?";
+const QUESTION_TEXT = 'What number is missing in the progression?';
 
-function startProgressionGame(): void
+function start(): void
 {
     $gameData = [];
 
@@ -18,46 +18,46 @@ function startProgressionGame(): void
         $stepOfProgression = random_int(1, 10);
         $lastIndexInArrayWithProgression = $amountOfNumbers - 1;
 
-        $randomArray = randomArrayWithProgression($firstNumber, $amountOfNumbers, $stepOfProgression);
-        $gameData[] = createGameData($randomArray, $lastIndexInArrayWithProgression);
+        $progression = createProgression($firstNumber, $amountOfNumbers, $stepOfProgression);
+        $gameData[] = createGameData($progression, $lastIndexInArrayWithProgression);
     }
 
     startBrainGame($gameData, QUESTION_TEXT);
 }
 
-function createGameData(array $array, int $lastIndexInArrayWithProgression): array
+function createGameData(array $progression, int $progressionLength): array
 {
-    $randomIndex = random_int(0, $lastIndexInArrayWithProgression);
+    $randomIndex = random_int(0, $progressionLength);
 
-    $correctAnswer = $array[$randomIndex];
+    $correctAnswer = $progression[$randomIndex];
 
-    $arrayForUser = implode(' ', hideOneNumberInArray($randomIndex, $array));
+    $question = implode(' ', hideOneNumberInProgression($randomIndex, $progression));
 
-    return [$arrayForUser, $correctAnswer];
+    return [$question, $correctAnswer];
 }
 
-function randomArrayWithProgression(int $firstNumber, int $amountOfNumbers, int $stepOfProgression): array
+function createProgression(int $firstNumber, int $amountOfNumbers, int $stepOfProgression): array
 {
-    $arrayWithProgression = [];
+    $progression = [];
 
-    for ($i = $firstNumber; count($arrayWithProgression) <= $amountOfNumbers; $i += $stepOfProgression) {
-        $arrayWithProgression[] = $i;
+    for ($i = $firstNumber; count($progression) <= $amountOfNumbers; $i += $stepOfProgression) {
+        $progression[] = $i;
     }
 
-    return $arrayWithProgression;
+    return $progression;
 }
 
-function hideOneNumberInArray(int $int, array $array): array
+function hideOneNumberInProgression(int $indexToHide, array $progression): array
 {
-    $arrayWithSpacedValue = [];
+    $progressionWithSpacedValue = [];
 
-    foreach ($array as $value) {
-        if ($array[$int] === $value) {
-            $arrayWithSpacedValue[] = '..';
+    foreach ($progression as $value) {
+        if ($progression[$indexToHide] === $value) {
+            $progressionWithSpacedValue[] = '..';
         } else {
-            $arrayWithSpacedValue[] = $value;
+            $progressionWithSpacedValue[] = $value;
         }
     }
 
-    return $arrayWithSpacedValue;
+    return $progressionWithSpacedValue;
 }

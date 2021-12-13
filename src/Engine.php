@@ -20,17 +20,14 @@ function startBrainGame(array $gameData, string $questionText): void
         line("Question: $question");
         $answer = prompt("Your answer");
 
-        if ($answer != $correctAnswer) {
+        if ($answer !== (string) $correctAnswer) {
             line("\"{$answer}\" is wrong answer ;(. Correct answer was \"{$correctAnswer}\".");
             line("Let's try again, {$name}!");
             return;
-        } else {
-            line("Correct!");
-            $correctAnswersOfUser++;
         }
+
+        line("Correct!");
     }
 
-    if ($correctAnswersOfUser === NUMBER_OF_ROUNDS_TO_WIN) {
-        line("Congratulations, {$name}!");
-    }
+    line("Congratulations, {$name}!");
 }

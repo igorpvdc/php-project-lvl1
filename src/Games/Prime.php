@@ -6,21 +6,18 @@ use function Brain\Engine\startBrainGame;
 
 use const Brain\Engine\NUMBER_OF_ROUNDS_TO_WIN;
 
-const QUESTION_TEXT = "Answer \"yes\" if given number is prime. Otherwise answer \"no\".";
+const QUESTION_TEXT = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-function startPrimeGame(): void
+function start(): void
 {
     $gameData = [];
 
     for ($i = 0; $i < NUMBER_OF_ROUNDS_TO_WIN; $i++) {
         $number = random_int(1, 100);
 
-        if (isPrime($number)) {
-            $questionAndAnswer = [$number, 'yes'];
-        } else {
-            $questionAndAnswer = [$number, 'no'];
-        }
-        $gameData[] = $questionAndAnswer;
+        $correctAnswer = isPrime($number) ?  'yes' : 'no';
+
+        $gameData[] = [$number, $correctAnswer];
     }
 
     startBrainGame($gameData, QUESTION_TEXT);
