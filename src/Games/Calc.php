@@ -8,15 +8,16 @@ use const Brain\Engine\NUMBER_OF_ROUNDS_TO_WIN;
 
 const QUESTION_TEXT = 'What is the result of the expression?';
 
+const SIGNS_FOR_EXPRESSIONS = ['-', '+', '*'];
+
 function start(): void
 {
     $gameData = [];
-    $signs = ['-', '+', '*'];
 
     for ($i = 0; $i < NUMBER_OF_ROUNDS_TO_WIN; $i++) {
         $number1 = random_int(1, 100);
         $number2 = random_int(1, 100);
-        $gameData[] = createGameData(array_rand($signs), $number1, $number2);
+        $gameData[] = createGameData(array_rand(SIGNS_FOR_EXPRESSIONS), $number1, $number2);
     }
 
     startBrainGame($gameData, QUESTION_TEXT);

@@ -13,21 +13,19 @@ function startBrainGame(array $gameData, string $questionText): void
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
 
-    $correctAnswersOfUser = 0;
-
     foreach ($gameData as [$question, $correctAnswer]) {
         line($questionText);
         line("Question: $question");
         $answer = prompt("Your answer");
 
         if ($answer !== (string) $correctAnswer) {
-            line("\"{$answer}\" is wrong answer ;(. Correct answer was \"{$correctAnswer}\".");
-            line("Let's try again, {$name}!");
+            line('"%s" is wrong answer! ;(. Correct answer was "%s".', $answer, $correctAnswer);
+            line("Let's try again, %s!", $name);
             return;
         }
 
         line("Correct!");
     }
 
-    line("Congratulations, {$name}!");
+    line("Congratulations, %s!", $name);
 }
